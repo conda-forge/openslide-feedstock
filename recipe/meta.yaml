@@ -2,14 +2,14 @@
 
 package:
   name: openslide
-  version: {{OPENSLIDE_VERSION}}
+  version: {{ OPENSLIDE_VERSION }}
 
 source:
-  url: https://github.com/openslide/openslide/releases/download/v{{OPENSLIDE_VERSION}}/openslide-{{OPENSLIDE_VERSION}}.tar.gz
+  url: https://github.com/openslide/openslide/releases/download/v{{ OPENSLIDE_VERSION }}/openslide-{{ OPENSLIDE_VERSION }}.tar.gz
   sha256: fed08fab8a9b1ded95a34e196652291127ebe392c11f9bc13d26e760295a102d
 
 build:
-  number: 1
+  number: 2
   skip: True  # [win]
 
 requirements:
