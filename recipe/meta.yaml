@@ -10,12 +10,12 @@ source:
 
 build:
   number: 4
-  skip: True  # [win]
+  skip: True
 
 requirements:
   build:
-    - gnuconfig  # [unix]
-    - make  # [unix]
+    - gnuconfig
+    - make
     - {{ compiler('c') }}
     - pkg-config
   host:
