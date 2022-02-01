@@ -10,7 +10,6 @@ source:
 
 build:
   number: 5
-  skip: True
 
 requirements:
   build:
