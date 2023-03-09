@@ -1,11 +1,11 @@
-About openslide
-===============
+About openslide-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openslide-feedstock/blob/main/LICENSE.txt)
 
 Home: http://openslide.org/
 
 Package license: LGPL 2.1
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openslide-feedstock/blob/main/LICENSE.txt)
 
 Summary: OpenSlide is a C library that provides a simple interface to read whole-slide images (also known as virtual slides).
 
