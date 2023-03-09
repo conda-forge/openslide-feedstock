@@ -4,20 +4,30 @@ c_compiler:
 - clang
 c_compiler_version:
 - '14'
+cairo:
+- '1'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 gdk_pixbuf:
 - '2'
+glib:
+- '2'
 libjpeg_turbo:
 - 2.1.5
 libpng:
 - '1.6'
+libtiff:
+- '4.5'
 libxml2:
 - '2.10'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+openjpeg:
+- '2'
+sqlite:
+- '3'
 target_platform:
 - osx-64
 zlib:
