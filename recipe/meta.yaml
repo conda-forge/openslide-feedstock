@@ -9,7 +9,7 @@ source:
   sha256: fed08fab8a9b1ded95a34e196652291127ebe392c11f9bc13d26e760295a102d
 
 build:
-  number: 6
+  number: 7
   skip: True  # [win]
 
 requirements:
@@ -19,25 +19,19 @@ requirements:
     - {{ compiler('c') }}
     - pkg-config
   host:
+    - cairo
     - cairo >=1.2
     - gdk-pixbuf
+    - glib
     - glib >=2.48.0
-    - jpeg
+    - libjpeg-turbo
+    - openjpeg
     - openjpeg >=2.1
     - libpng
+    - libtiff
     - libtiff >=4
     - libxml2
-    - sqlite >=3.6.2
-    - zlib
-  run:
-    - cairo >=1.2
-    - gdk-pixbuf
-    - glib >=2.48.0
-    - jpeg
-    - libpng
-    - libtiff >=4
-    - libxml2
-    - openjpeg >=2.1
+    - sqlite
     - sqlite >=3.6.2
     - zlib
 

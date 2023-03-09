@@ -2,6 +2,8 @@ c_compiler:
 - gcc
 c_compiler_version:
 - '11'
+cairo:
+- '1'
 cdt_name:
 - cos7
 channel_sources:
@@ -12,12 +14,20 @@ docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 gdk_pixbuf:
 - '2'
-jpeg:
-- '9'
+glib:
+- '2'
+libjpeg_turbo:
+- 2.1.5
 libpng:
 - '1.6'
+libtiff:
+- '4.5'
 libxml2:
 - '2.10'
+openjpeg:
+- '2'
+sqlite:
+- '3'
 target_platform:
 - linux-ppc64le
 zlib:
