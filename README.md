@@ -193,7 +193,3 @@ Feedstock Maintainers
 * [@hmaarrfk](https://github.com/hmaarrfk/)
 * [@jcupitt](https://github.com/jcupitt/)
 
-
-
-<!-- dummy commit to enable rerendering -->
-
