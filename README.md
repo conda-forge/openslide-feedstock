@@ -193,4 +193,3 @@ Feedstock Maintainers
 * [@hmaarrfk](https://github.com/hmaarrfk/)
 * [@jcupitt](https://github.com/jcupitt/)
 
-

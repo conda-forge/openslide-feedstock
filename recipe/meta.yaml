@@ -1,16 +1,20 @@
-{% set OPENSLIDE_VERSION = "3.4.1" %}
+{% set version = "3.4.1" %}
 
 package:
   name: openslide
-  version: {{ OPENSLIDE_VERSION }}
+  version: {{ version }}
 
 source:
-  url: https://github.com/openslide/openslide/releases/download/v{{ OPENSLIDE_VERSION }}/openslide-{{ OPENSLIDE_VERSION }}.tar.gz
+  url: https://github.com/openslide/openslide/releases/download/v{{ version }}/openslide-{{ version }}.tar.gz
   sha256: fed08fab8a9b1ded95a34e196652291127ebe392c11f9bc13d26e760295a102d
 
 build:
-  number: 7
+  number: 8
   skip: True  # [win]
+  run_exports:
+    # good compatibility in 3.X
+    # https://abi-laboratory.pro/index.php?view=timeline&l=openslide
+    - {{ pin_subpackage('openslide') }}
 
 requirements:
   build:
