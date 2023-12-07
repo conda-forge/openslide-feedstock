@@ -42,7 +42,7 @@ requirements:
 test:
   commands:
     - test -f $PREFIX/lib/libopenslide${SHLIB_EXT}  # [unix]
-    - slidetool --help
+    - env OPENSLIDE_DEBUG=synthetic slidetool prop list ""  # [unix]
     - if not exist %LIBRARY_LIB%\libopenslide.dll exit 1   # [win]
 
 about:
