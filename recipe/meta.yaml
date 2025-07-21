@@ -9,7 +9,7 @@ source:
   sha256: cc227c44316abb65fb28f1c967706eb7254f91dbfab31e9ae6a48db6cf4ae562
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   run_exports:
     # good compatibility in 3.X
@@ -25,6 +25,8 @@ requirements:
   host:
     - cairo
     - cairo >=1.2
+    # https://github.com/conda-forge/fontconfig-feedstock/issues/64
+    - expat
     - gdk-pixbuf
     - glib
     - glib >=2.56.0
@@ -32,12 +34,16 @@ requirements:
     - openjpeg
     - openjpeg >=2.1
     - libdicom
+    # https://github.com/conda-forge/libtiff-feedstock/issues/113
+    - liblzma-devel
     - libpng
     - libtiff
     - libtiff >=4
     - libxml2
     - sqlite
     - sqlite >=3.14
+    # https://github.com/conda-forge/xorg-libx11-feedstock/issues/51
+    - xorg-xorgproto  # [linux]
     - zlib
 
 test:
