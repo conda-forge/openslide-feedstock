@@ -18,15 +18,16 @@ build:
 
 requirements:
   build:
-    - meson  # [unix]
+    - meson
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - pkg-config
   host:
     - cairo
     - cairo >=1.2
     - gdk-pixbuf
     - glib
-    - glib >=2.48.0
+    - glib >=2.56.0
     - libjpeg-turbo
     - openjpeg
     - openjpeg >=2.1
@@ -36,7 +37,7 @@ requirements:
     - libtiff >=4
     - libxml2
     - sqlite
-    - sqlite >=3.6.2
+    - sqlite >=3.14
     - zlib
 
 test:
@@ -46,8 +47,8 @@ test:
     - if not exist %LIBRARY_LIB%\libopenslide.dll exit 1   # [win]
 
 about:
-  home: http://openslide.org/
-  license: LGPL 2.1
+  home: https://openslide.org/
+  license: LGPL-2.1-only
   license_family: LGPL
   license_file: COPYING.LESSER
   summary: OpenSlide is a C library that provides a simple interface to read whole-slide images (also known as virtual slides).
