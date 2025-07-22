@@ -9,7 +9,7 @@ source:
   sha256: cc227c44316abb65fb28f1c967706eb7254f91dbfab31e9ae6a48db6cf4ae562
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   run_exports:
     # good compatibility in 3.X
@@ -18,25 +18,32 @@ build:
 
 requirements:
   build:
-    - meson  # [unix]
+    - meson
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - pkg-config
   host:
     - cairo
     - cairo >=1.2
+    # https://github.com/conda-forge/fontconfig-feedstock/issues/64
+    - expat
     - gdk-pixbuf
     - glib
-    - glib >=2.48.0
+    - glib >=2.56.0
     - libjpeg-turbo
     - openjpeg
     - openjpeg >=2.1
     - libdicom
+    # https://github.com/conda-forge/libtiff-feedstock/issues/113
+    - liblzma-devel
     - libpng
     - libtiff
     - libtiff >=4
     - libxml2
     - sqlite
-    - sqlite >=3.6.2
+    - sqlite >=3.14
+    # https://github.com/conda-forge/xorg-libx11-feedstock/issues/51
+    - xorg-xorgproto  # [linux]
     - zlib
 
 test:
@@ -46,8 +53,8 @@ test:
     - if not exist %LIBRARY_LIB%\libopenslide.dll exit 1   # [win]
 
 about:
-  home: http://openslide.org/
-  license: LGPL 2.1
+  home: https://openslide.org/
+  license: LGPL-2.1-only
   license_family: LGPL
   license_file: COPYING.LESSER
   summary: OpenSlide is a C library that provides a simple interface to read whole-slide images (also known as virtual slides).
