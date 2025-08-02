@@ -1,0 +1,35 @@
+commit 101e7c82b3af26d600695c7bdbc0b8fc201a05c4
+Author: Benjamin Gilbert <bgilbert@cs.cmu.edu>
+Date:   Thu Jul 24 22:09:14 2025 -0700
+
+    meson: support SQLite on Windows without pkg-config
+    
+    conda-forge builds SQLite on Windows using SQLite's Makefile.msc, which
+    doesn't install a .pc file.
+    
+    Signed-off-by: Benjamin Gilbert <bgilbert@cs.cmu.edu>
+
+diff --git a/meson.build b/meson.build
+index 0b4d7d47b695..0673c022501e 100644
+--- a/meson.build
++++ b/meson.build
+@@ -106,7 +106,18 @@ gobject_dep    = dependency('gobject-2.0')
+ cairo_dep      = dependency('cairo', version : '>=1.2')
+ gdk_pixbuf_dep = dependency('gdk-pixbuf-2.0', version : '>=2.14')
+ xml_dep        = dependency('libxml-2.0')
+-sqlite_dep     = dependency('sqlite3', version : '>=3.14')
++sqlite_dep     = dependency(
++  'sqlite3',
++  version : '>=3.14',
++  required : host_machine.system() != 'windows',
++)
++if not sqlite_dep.found()
++  # SQLite's Makefile.msc (for Windows) doesn't install the pkg-config file
++  sqlite_dep = declare_dependency(
++    dependencies : cc.find_library('sqlite3'),
++    compile_args : '-DSQLITE_API=__declspec(dllimport)',
++  )
++endif
+ dicom_dep      = dependency(
+   'libdicom',
+   # avoid 'check' dependency
