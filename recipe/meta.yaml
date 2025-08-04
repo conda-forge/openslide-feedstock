@@ -16,10 +16,6 @@ source:
     # https://github.com/conda-forge/sqlite-feedstock/issues/131
     # https://github.com/openslide/openslide/pull/685
     - windows-find-sqlite3.patch
-    # OpenJPEG's pkg-config file unconditionally links with libm
-    # https://github.com/uclouvain/openjpeg/pull/1591
-    # https://github.com/conda-forge/openjpeg-feedstock/pull/54
-    - windows-openjpeg-avoid-libm.patch
 
 build:
   number: 2
