@@ -16,9 +16,12 @@ source:
     # https://github.com/conda-forge/sqlite-feedstock/issues/131
     # https://github.com/openslide/openslide/pull/685
     - windows-find-sqlite3.patch
+    # Produce the expected DLL name with clang
+    # https://github.com/openslide/openslide/pull/686
+    - windows-dll-name.patch
 
 build:
-  number: 2
+  number: 3
   run_exports:
     # good compatibility in 3.X
     # https://abi-laboratory.pro/index.php?view=timeline&l=openslide
@@ -58,7 +61,7 @@ test:
   commands:
     - test -f $PREFIX/lib/libopenslide${SHLIB_EXT}  # [unix]
     - env OPENSLIDE_DEBUG=synthetic slidetool prop list ""  # [unix]
-    - if not exist %LIBRARY_BIN%\openslide-1.dll exit 1   # [win]
+    - if not exist %LIBRARY_BIN%\libopenslide-1.dll exit 1   # [win]
 
 about:
   home: https://openslide.org/
