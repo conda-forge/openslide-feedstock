@@ -21,7 +21,7 @@ source:
     - windows-dll-name.patch
 
 build:
-  number: 4
+  number: 5
   run_exports:
     # good compatibility in 3.X
     # https://abi-laboratory.pro/index.php?view=timeline&l=openslide
@@ -48,7 +48,7 @@ requirements:
     - libpng
     - libtiff
     - libtiff >=4
-    - libxml2
+    - libxml2-devel
     - sqlite
     - sqlite >=3.14
     # https://github.com/conda-forge/xorg-libx11-feedstock/issues/51
