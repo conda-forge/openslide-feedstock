@@ -21,7 +21,7 @@ source:
     - windows-dll-name.patch
 
 build:
-  number: 5
+  number: 6
   run_exports:
     # good compatibility in 3.X
     # https://abi-laboratory.pro/index.php?view=timeline&l=openslide
@@ -35,24 +35,19 @@ requirements:
     - pkg-config
   host:
     - cairo
-    - cairo >=1.2
     # https://github.com/conda-forge/fontconfig-feedstock/issues/64
     - expat
     - gdk-pixbuf
     - glib
-    - glib >=2.56.0
     - libjpeg-turbo
     - openjpeg
-    - openjpeg >=2.1
     - libdicom
     # https://github.com/conda-forge/libxml2-feedstock/issues/164
     - liblzma-devel
     - libpng
     - libtiff
-    - libtiff >=4
     - libxml2-devel
     - sqlite
-    - sqlite >=3.14
     # https://github.com/conda-forge/xorg-libx11-feedstock/issues/51
     - xorg-xorgproto  # [linux]
     - zlib
