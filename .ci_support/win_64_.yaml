@@ -16,12 +16,14 @@ glib:
 - '2'
 libjpeg_turbo:
 - '3'
+liblzma_devel:
+- '5'
 libpng:
 - '1.6'
 libtiff:
 - '4.7'
-libxml2:
-- '2.13'
+libxml2_devel:
+- '2.14'
 openjpeg:
 - '2'
 openslide:
