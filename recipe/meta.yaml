@@ -45,6 +45,8 @@ requirements:
     - openjpeg
     - openjpeg >=2.1
     - libdicom
+    # https://github.com/conda-forge/libxml2-feedstock/issues/164
+    - liblzma-devel
     - libpng
     - libtiff
     - libtiff >=4
