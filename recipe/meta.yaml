@@ -37,6 +37,9 @@ requirements:
     - cairo
     # https://github.com/conda-forge/fontconfig-feedstock/issues/64
     - expat
+    # https://github.com/conda-forge/fontconfig-feedstock/issues/64
+    # (yes, same issue)
+    - freetype
     - gdk-pixbuf
     - glib
     - libjpeg-turbo
