@@ -19,9 +19,13 @@ source:
     # Produce the expected DLL name with clang
     # https://github.com/openslide/openslide/pull/686
     - windows-dll-name.patch
+    # Don't return uninitialized data in bottom row of non-JPEG, non-JP2K
+    # TIFF level
+    # https://github.com/openslide/openslide/pull/706
+    - libtiff-partial-tile.patch
 
 build:
-  number: 6
+  number: 7
   run_exports:
     # good compatibility in 3.X
     # https://abi-laboratory.pro/index.php?view=timeline&l=openslide
