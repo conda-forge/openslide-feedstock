@@ -1,4 +1,4 @@
-{% set version = "4.0.0" %}
+{% set version = "4.0.1" %}
 
 package:
   name: openslide
@@ -6,29 +6,10 @@ package:
 
 source:
   url: https://github.com/openslide/openslide/releases/download/v{{ version }}/openslide-{{ version }}.tar.xz
-  sha256: cc227c44316abb65fb28f1c967706eb7254f91dbfab31e9ae6a48db6cf4ae562
-  patches:
-    # https://github.com/openslide/openslide/pull/680
-    - fix-win-build.patch
-    - slidetool-unicode.patch
-    # sqlite-feedstock builds SQLite with Makefile.msc on Windows, omitting
-    # the pkg-config file
-    # https://github.com/conda-forge/sqlite-feedstock/issues/131
-    # https://github.com/openslide/openslide/pull/685
-    - windows-find-sqlite3.patch
-    # Produce the expected DLL name with clang
-    # https://github.com/openslide/openslide/pull/686
-    - windows-dll-name.patch
-    # Don't return uninitialized data in bottom row of non-JPEG, non-JP2K
-    # TIFF level
-    # https://github.com/openslide/openslide/pull/706
-    - libtiff-partial-tile.patch
-    # Fix CVE-2026-48977
-    # https://github.com/openslide/openslide/pull/751
-    - ventana-CVE-2026-48977.patch
+  sha256: df82f6b264f98d11eeb80d85bbb10c7935fcd69c7abae1d610ce49b9a0437faf
 
 build:
-  number: 8
+  number: 0
   run_exports:
     # good compatibility in 3.X
     # https://abi-laboratory.pro/index.php?view=timeline&l=openslide
@@ -47,7 +28,6 @@ requirements:
     # https://github.com/conda-forge/fontconfig-feedstock/issues/64
     # (yes, same issue)
     - freetype
-    - gdk-pixbuf
     - glib
     - libjpeg-turbo
     - openjpeg
@@ -61,12 +41,14 @@ requirements:
     # https://github.com/conda-forge/xorg-libx11-feedstock/issues/51
     - xorg-xorgproto  # [linux]
     - zlib
+    - zstd
 
 test:
   commands:
     - test -f $PREFIX/lib/libopenslide${SHLIB_EXT}  # [unix]
-    - env OPENSLIDE_DEBUG=synthetic slidetool prop list ""  # [unix]
+    - slidetool test deps  # [unix]
     - if not exist %LIBRARY_BIN%\libopenslide-1.dll exit 1   # [win]
+    - '%LIBRARY_BIN%\slidetool.exe test deps'   # [win]
 
 about:
   home: https://openslide.org/
