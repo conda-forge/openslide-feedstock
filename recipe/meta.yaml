@@ -23,9 +23,12 @@ source:
     # TIFF level
     # https://github.com/openslide/openslide/pull/706
     - libtiff-partial-tile.patch
+    # Fix CVE-2026-48977
+    # https://github.com/openslide/openslide/pull/751
+    - ventana-CVE-2026-48977.patch
 
 build:
-  number: 7
+  number: 8
   run_exports:
     # good compatibility in 3.X
     # https://abi-laboratory.pro/index.php?view=timeline&l=openslide
