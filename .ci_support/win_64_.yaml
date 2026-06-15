@@ -12,8 +12,6 @@ expat:
 - '2'
 freetype:
 - '2'
-gdk_pixbuf:
-- '2'
 glib:
 - '2'
 libjpeg_turbo:
@@ -36,3 +34,5 @@ target_platform:
 - win-64
 zlib:
 - '1'
+zstd:
+- '1.5'
